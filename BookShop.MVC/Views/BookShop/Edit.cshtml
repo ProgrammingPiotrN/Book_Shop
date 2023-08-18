@@ -1,0 +1,61 @@
+﻿@using BookShop.Application.BookShopService.Commands;
+@model BookShop.Application.BookShop.Commands.EditBookShop.EditBookShopCommand
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Name</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group m-3">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="About" class="control-label"></label>
+                <input asp-for="About" class="form-control" />
+                <span asp-validation-for="About" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="NumberPhone" class="control-label"></label>
+                <input asp-for="NumberPhone" class="form-control" />
+                <span asp-validation-for="NumberPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="Street" class="control-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <partial name="_CreateBookShopService" model="new CreateBookShopServiceCommand() { BookShopEncodedName = Model.EncodedName } "/>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/BookShop/Edit.js"></script>
+}
