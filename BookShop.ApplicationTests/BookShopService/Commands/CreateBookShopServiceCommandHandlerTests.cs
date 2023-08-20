@@ -1,16 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BookShop.Application.ApplicationUser;
+﻿using Xunit;
+using BookShop.Application.BookShopService.Commands;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BookShop.Domain.Entities;
 using Moq;
+using BookShop.Application.ApplicationUser;
+using BookShop.Application.BookShop;
 using BookShop.Domain.Interfaces;
 using FluentAssertions;
 using MediatR;
 
+
 namespace BookShop.Application.BookShopService.Commands.Tests
 {
-    [TestClass()]
+    
     public class CreateBookShopServiceCommandHandlerTests
     {
-        [TestMethod()]
+        [Fact()]
         public async Task CreatesBookShopServiceCommandHandler_WhenUserIsAuthorized()
         {
             var bookShop = new Domain.Entities.BookShop()
@@ -46,7 +55,7 @@ namespace BookShop.Application.BookShopService.Commands.Tests
             bookShopServiceRepositoryMock.Verify(m => m.Create(It.IsAny<Domain.Entities.BookShopService>()), Times.Once);
         }
 
-        [TestMethod()]
+        [Fact()]
         public async Task CreatesBookShopServiceCommandHandler_WhenUserIsModerator()
         {
             var bookShop = new Domain.Entities.BookShop()
@@ -82,7 +91,7 @@ namespace BookShop.Application.BookShopService.Commands.Tests
             bookShopServiceRepositoryMock.Verify(m => m.Create(It.IsAny<Domain.Entities.BookShopService>()), Times.Once);
         }
 
-        [TestMethod()]
+        [Fact()]
         public async Task CreatesBookShopServiceCommandHandler_WhenUserIsNotAuthorized()
         {
             var bookShop = new Domain.Entities.BookShop()
@@ -117,7 +126,7 @@ namespace BookShop.Application.BookShopService.Commands.Tests
             bookShopServiceRepositoryMock.Verify(m => m.Create(It.IsAny<Domain.Entities.BookShopService>()), Times.Never);
         }
 
-        [TestMethod()]
+        [Fact()]
         public async Task CreatesBookShopServiceCommandHandler_WhenUserIsNotAuthenticated()
         {
             var bookShop = new Domain.Entities.BookShop()

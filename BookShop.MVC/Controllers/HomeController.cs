@@ -45,9 +45,9 @@ public class HomeController : Controller
     {
         var about = new About()
         {
-            Title = "Book shop application",
-            Description = "Book shop application",
-            Tags = new List<string>() { "Book", "Books", "Liblary", "Shop" }
+            Title = "BookShop application",
+            Description = "Some description",
+            Tags = new List<string>() { "book", "liblary", "shop" }
         };
         return View(about);
     }

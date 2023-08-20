@@ -1,21 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using BookShop.Application.ApplicationUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using FluentAssertions;
 using Moq;
+using System.Security.Claims;
+using FluentAssertions;
 
 namespace BookShop.Application.ApplicationUser.Tests
 {
-    [TestClass()]
+    
     public class UserContextTests
     {
-        [TestMethod()]
+        [Fact()]
         public void GetCurrentUser_AuthenticatedUser_ReturnCurrentUserTest()
         {
             var claims = new List<Claim>

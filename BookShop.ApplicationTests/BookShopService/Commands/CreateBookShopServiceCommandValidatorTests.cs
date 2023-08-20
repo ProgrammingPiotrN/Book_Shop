@@ -1,12 +1,18 @@
-﻿using FluentValidation.TestHelper;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
+using BookShop.Application.BookShopService.Commands;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using FluentValidation.TestHelper;
 
 namespace BookShop.Application.BookShopService.Commands.Tests
 {
-    [TestClass()]
+    
     public class CreateBookShopServiceCommandValidatorTests
     {
-        [TestMethod()]
+        [Fact()]
         public void CreateBookShopServiceCommandValidator_ValidationError_WithValidateCommandTest()
         {
             var validator = new CreateBookShopServiceCommandValidator();
@@ -20,7 +26,7 @@ namespace BookShop.Application.BookShopService.Commands.Tests
             result.ShouldNotHaveAnyValidationErrors();
         }
 
-        [TestMethod()]
+        [Fact()]
         public void CreateBookShopServiceCommandValidator_ValidationErrors_WithValidateCommandTest()
         {
             var validator = new CreateBookShopServiceCommandValidator();

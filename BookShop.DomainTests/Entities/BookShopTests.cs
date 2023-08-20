@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using BookShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,10 +9,10 @@ using FluentAssertions;
 
 namespace BookShop.Domain.Entities.Tests
 {
-    [TestClass()]
+    
     public class BookShopTests
     {
-        [TestMethod()]
+        [Fact()]
         public void CodeUrlTest()
         {
             var bookShop = new BookShop();
@@ -22,7 +22,7 @@ namespace BookShop.Domain.Entities.Tests
             bookShop.EncodedName.Should().Be("test-jednostkowy");
         }
 
-        [TestMethod()]
+        [Fact()]
         public void CodeUrl_IsNull()
         {
             var bookShop = new BookShop();

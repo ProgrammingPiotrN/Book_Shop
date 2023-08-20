@@ -1,17 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AutoMapper;
+﻿using Xunit;
+using BookShop.Application.Mappings;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BookShop.Application.ApplicationUser;
 using Moq;
 using BookShop.Application.BookShop;
+using AutoMapper;
 using FluentAssertions;
 using BookShop.Domain.Entities;
-
 namespace BookShop.Application.Mappings.Tests
 {
-    [TestClass()]
+    
     public class BookShopMappingProfileTests
     {
-        [TestMethod()]
+        [Fact()]
         public void MappingProfile_MapCarWorkshopDtoToCarWorkshop()
         {
             var userContextMock = new Mock<IUserContext>();
@@ -43,7 +48,7 @@ namespace BookShop.Application.Mappings.Tests
             result.ContactDetails.Street.Should().Be(dto.Street);
         }
 
-        [TestMethod()]
+        [Fact()]
         public void MappingProfile_MapCarWorkshopToCarWorkshopDto()
         {
             var userContextMock = new Mock<IUserContext>();

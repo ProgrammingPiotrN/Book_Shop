@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BookShop.Application.ApplicationUser;
+﻿using Xunit;
+using BookShop.Application.BookShop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,10 @@ using FluentAssertions;
 
 namespace BookShop.Application.ApplicationUser.Tests
 {
-    [TestClass()]
+    
     public class CurrentUserTests
     {
-        [TestMethod()]
+        [Fact()]
         public void IsInRole_ReturnTrue()
         {
             var currentUser = new CurrentUser("1", "test@test.com", new List<string> { "Admin", "User" });
@@ -20,7 +20,7 @@ namespace BookShop.Application.ApplicationUser.Tests
             isInRole.Should().BeTrue();
         }
 
-        [TestMethod()]
+        [Fact()]
         public void IsInRole_ReturnFalse()
         {
             var currentUser = new CurrentUser("1", "test@test.com", new List<string> { "Admin", "User" });
@@ -28,7 +28,7 @@ namespace BookShop.Application.ApplicationUser.Tests
             isInRole.Should().BeFalse();
         }
 
-        [TestMethod()]
+        [Fact()]
         public void IsInRole_ReturnMatchingCaseRoleFalse()
         {
             var currentUser = new CurrentUser("1", "test@test.com", new List<string> { "Admin", "User" });
